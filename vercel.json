@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "apps/dashboard/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/apps/dashboard/$1"
+        }
+    ],
+    "buildCommand": "cd apps/dashboard && npm install && npm run build",
+    "outputDirectory": "apps/dashboard/dist",
+    "installCommand": "npm install --prefix apps/dashboard"
+}
