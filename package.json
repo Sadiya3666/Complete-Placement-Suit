@@ -1,0 +1,22 @@
+{
+    "name": "complete-placement-suite",
+    "version": "1.0.0",
+    "description": "Unified platform for job tracking, interview prep, and resume building",
+    "private": true,
+    "scripts": {
+        "install:all": "cd apps/job-tracker && npm install && cd ../placement-readiness && npm install && cd ../resume-builder && npm install && cd ../dashboard && npm install && cd ../..",
+        "dev": "concurrently -n \"DASH,JOB,PREP,RESUME\" -c \"white,cyan,magenta,green\" \"npm run dev:dash\" \"npm run dev:job\" \"npm run dev:prep\" \"npm run dev:resume\"",
+        "dev:dash": "cd apps/dashboard && npm run dev -- --port 5000",
+        "dev:job": "cd apps/job-tracker && npm run dev -- --port 5001",
+        "dev:prep": "cd apps/placement-readiness && npm run dev -- --port 5002",
+        "dev:resume": "cd apps/resume-builder && npm run dev -- --port 5003",
+        "start": "npm run dev"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "dependencies": {
+        "framer-motion": "^12.34.0",
+        "lucide-react": "^0.564.0"
+    }
+}
